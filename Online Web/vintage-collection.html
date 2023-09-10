@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Watch Collection</title>
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+    <!-- Header with navigation (similar to your main page) -->
+    <header>
+        <nav>
+            <!-- Navigation links -->
+            <img src="images/logo.png" alt="Dk Watches Attire   ">
+        </nav>
+    </header>
+
+    <!-- vintage Watch Collection Section -->
+    <section id="vintage-collection">
+        <h2>Vintage Watches</h2>
+        
+        <!-- Product 1 -->
+        <div class="product">
+            <img src="images/vintage01.png" alt="Vintage Watch 1">
+            <h3>ROLEX Vintage Piece</h3>
+            <p>Premium quality leather belongs to 18th century.</p>
+            <p>Price: ₹2,49,999.99</p>
+            <button onclick="addToCart('ROLEX Vintage Piece', 2,49,999.99)">Add to Cart</button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product">
+            <img src="images/vintage06.jpg" alt="Vintage Watch 2">
+            <h3>Vintage Audemars Piguet </h3>
+            <p>Automatic and over-whelmed.</p>
+            <p>Price: ₹1,49,999.99</p>
+            <button onclick="addToCart('Vintage Audemars Piguet', 1,49,999.99)">Add to Cart</button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product">
+            <img src="images/vintage03.jpg" alt="Vintage Watch 3">
+            <h3>Vintage Venom JAEGER</h3>
+            <p>Leather with snake details.</p>
+            <p>Price: ₹3,99,999.99</p>
+            <button onclick="addToCart('vintage Venom JAEGER', 3,99,999.99)">Add to Cart</button>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product">
+            <img src="images/vintage04.webp" alt="Vintage Watch 4">
+            <h3>Vintage ROLEX Perpetual</h3>
+            <p>vintage and timeless design.</p>
+            <p>Price: ₹3,49,999.99</p>
+            <button onclick="addToCart('Vintage ROLEX Perpetual', 3,49,999.99)">Add to Cart</button>
+        </div>
+
+        
+
+        <!-- Add more product listings as needed -->
+
+        <!-- Shopping Cart Section (optional) -->
+        <section id="shopping-cart">
+            <h2>Shopping Cart</h2>
+            <ul id="cart-items">
+                <!-- Cart items will be added here -->
+            </ul>
+            <p>Total: <span id="cart-total">$0.00</span></p>
+            <button onclick="checkout()">Checkout</button>
+        </section>
+    </section>
+
+    <!-- Footer (similar to your main page) -->
+    <footer>
+        <!-- Footer content -->
+        <h5>Copyright &copy; DK Watches Attire 2023</h5>
+    </footer>
+
+    <!-- JavaScript for shopping cart functionality -->
+    <script>
+        // Initialize cart and add-to-cart function (JavaScript)
+        let cart = [];
+        let total = 0.00;
+
+        function addToCart(itemName, itemPrice) {
+            cart.push({ name: itemName, price: itemPrice });
+            total += itemPrice;
+            updateCart();
+        }
+
+        function updateCart() {
+            let cartItems = document.getElementById("cart-items");
+            cartItems.innerHTML = "";
+            cart.forEach(item => {
+                let listItem = document.createElement("li");
+                listItem.textContent = `${item.name} - $${item.price}`;
+                cartItems.appendChild(listItem);
+            });
+            document.getElementById("cart-total").textContent = `$${total.toFixed(2)}`;
+        }
+
+        function checkout() {
+            // Implement checkout functionality (e.g., payment processing)
+            alert("Thank you for your purchase!");
+            cart = [];
+            total = 0.00;
+            updateCart();
+        }
+    </script>
+</body>
+</html>

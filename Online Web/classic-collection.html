@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Watches</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <!-- Header with navigation (similar to your main page) -->
+    <header>
+        <nav>
+            <!-- Navigation links -->
+            <img src="images/logo.png" alt="Dk Watches Attire   ">
+            
+           
+            
+        </nav>
+    </header>
+
+    <!-- Classic Watch Collection Section -->
+    <section id="classic-collection">
+        <h2>Classic Watches</h2>
+        
+        <!-- Product 1 -->
+        <div class="product">
+            <img src="images/05.jpg" alt="Classic Watch 1">
+            <h3>Citizen Ecodrive</h3>
+            <p>Classic and timeless design with leather strap.</p>
+            <p>Price: ₹2499.99</p>
+            <button onclick="addToCart('Citizen Ecodrive', 2499.99)">Add to Cart</button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product">
+            <img src="images/classic02.webp" alt="Classic Watch 2">
+            <h3>FOSSIL marine blue dail</h3>
+            <p>Marine Blue with leather strap.</p>
+            <p>Price: ₹1999.99</p>
+            <button onclick="addToCart('FOSSIL', 1999.99)">Add to Cart</button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product">
+            <img src="images/classic03.webp" alt="Classic Watch 3">
+            <h3>MOVADO Metallic Gray</h3>
+            <p>Black Gray perfect for your wrist.</p>
+            <p>Price: ₹1499.99</p>
+            <button onclick="addToCart('MOVADO Metallic Gray', 1499.99)">Add to Cart</button>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product">
+            <img src="images/classic04.jpg" alt="Classic Watch 4">
+            <h3>BVLGARI DANIEL ROTH CAL8300</h3>
+            <p>Tour Billon Rathrapente.</p>
+            <p>Price: ₹5499.99</p>
+            <button onclick="addToCart('BVLGARI DANIEL ROTH CAL8300', 5499.99)">Add to Cart</button>
+        </div>
+
+        <!-- Add more product listings as needed -->
+
+        <!-- Shopping Cart Section (optional) -->
+        <section id="shopping-cart">
+            <h2>Shopping Cart</h2>
+            <ul id="cart-items">
+                <!-- Cart items will be added here -->
+            </ul>
+            <p>Total: <span id="cart-total">$0.00</span></p>
+            <button onclick="checkout()">Checkout</button>
+        </section>
+    </section>
+
+    <!-- Footer (similar to your main page) -->
+    <footer>
+        <!-- Footer content -->
+        <h5>Copyright &copy; DK Watches Attire 2023</h5>
+    </footer>
+
+    <!-- JavaScript for shopping cart functionality -->
+    <script>
+        // Initialize cart and add-to-cart function (JavaScript)
+        let cart = [];
+        let total = 0.00;
+
+        function addToCart(itemName, itemPrice) {
+            cart.push({ name: itemName, price: itemPrice });
+            total += itemPrice;
+            updateCart();
+        }
+
+        function updateCart() {
+            let cartItems = document.getElementById("cart-items");
+            cartItems.innerHTML = "";
+            cart.forEach(item => {
+                let listItem = document.createElement("li");
+                listItem.textContent = `${item.name} - $${item.price}`;
+                cartItems.appendChild(listItem);
+            });
+            document.getElementById("cart-total").textContent = `$${total.toFixed(2)}`;
+        }
+
+        function checkout() {
+            // Implement checkout functionality (e.g., payment processing)
+            alert("Thank you for your purchase!");
+            cart = [];
+            total = 0.00;
+            updateCart();
+        }
+    </script>
+</body>
+</html>
